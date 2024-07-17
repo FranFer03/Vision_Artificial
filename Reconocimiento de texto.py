@@ -2,7 +2,7 @@ import cv2
 import pytesseract
 
 # Cargar imagen
-img = cv2.imread('Texto1.png')
+img = cv2.imread('C:\GitHub\Vision_Artificial\Texto1.png',1)
 
 # Convertir imagen a escalas de grises
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

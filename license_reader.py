@@ -11,10 +11,8 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Aplicar umbralización
 thresh = cv2.threshold(gray, 130, 255, cv2.THRESH_BINARY_INV)[1]
-
 # Encontrar contornos
 contours, _ = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-
 # Definir parámetros para la detección de candidatos
 license_ratio = 3.2
 min_w = 150
@@ -47,7 +45,7 @@ cv2.drawContours(canvas, candidates, -1, (0, 200, 0), 1)
 
 x,y,w,h = cv2.boundingRect(license)
 cropped = img[y:y+h,x:x+w]
-# cv2.imshow("License2",cropped)
+cv2.imshow("License2",cropped)
 
 import skimage.io
 import skimage.color
@@ -83,12 +81,12 @@ axes[2].axis('off')
 plt.tight_layout()
 plt.show()
 
-# gray_cropped = cv2.cvtColor(cropped,cv2.COLOR_BGR2GRAY)
-# thresh_cropped = cv2.adaptiveThreshold(gray_cropped, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 7, 13)
-# cv2.imshow("License",thresh_cropped)
+gray_cropped = cv2.cvtColor(cropped,cv2.COLOR_BGR2GRAY)
+thresh_cropped = cv2.adaptiveThreshold(gray_cropped, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 7, 13)
+cv2.imshow("License",thresh_cropped)
 
-# borderless = skimage.segmentation.clear_border(thresh_cropped,buffer_size=0,bgval=0)
-# cv2.imshow("License2",borderless)
+borderless = skimage.segmentation.clear_border(thresh_cropped,buffer_size=0,bgval=0)
+cv2.imshow("License2",borderless)
 
 # final = cv2.bitwise_not(sin_borde)
 # cv2.imshow("License Binary",final)

@@ -2,13 +2,13 @@ import cv2
 import numpy as np
 
 # Leer la imagen
-img = cv2.imread("bochido.jpg")
+img = cv2.imread("C:\GitHub\Vision_Artificial\Tutoriales\pardatio.png")
 
 # Convertir a escala de grises
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Aplicar umbralización
-thresh = cv2.threshold(gray, 130, 255, cv2.THRESH_BINARY_INV)[1]
+thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY_INV)[1]
 
 # Encontrar contornos
 contours, _ = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
