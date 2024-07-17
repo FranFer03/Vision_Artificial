@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Leer la imagen
-img = cv2.imread("C:\GitHub\Vision_Artificial\Tutoriales\pardatio.png")
+img = cv2.imread("Tutoriales\pardatio.png")
 
 # Convertir a escala de grises
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
